@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Transactions from './components/Transactions.js';
+import CurrentInfo from './components/CurrentInfo.js';
+import Navigation from './components/Navbar.js';
+import HistoricalFeed from './components/HistoricalFeed.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <Navigation />
+    <div className="container">
+      <br />
+      <h1>Data on ETH/USD</h1>
+      <br />
+      <div className="row">
+        <div className="col">
+          <h3>Current Data</h3>
+          <br />
+          <CurrentInfo />
+          <br />
+          <h3>Historical Price Feed</h3>
+          <br />
+          <HistoricalFeed />
+        </div>
+        <div className="col">
+          <h3>Transaction History</h3>
+          <br />
+          <Transactions />
+        </div>
+      </div>
     </div>
+    </>
   );
 }
 
