@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { tellorPriceFeed } from '../helpers/smartContract.js'
+import '../style/CurrentInfo.css'
 
 function CurrentInfo() {
 
@@ -21,13 +22,12 @@ function CurrentInfo() {
         }
     });
     return (
-        <div class="card">
-            <div class="card-body">
-                <p>ID: 2</p>
-                <p>Price: {price}</p>
-                <p>Time Updated: {timestamp}</p>
-            </div>
-        </div>
+        <>
+            <p className="descriptor">latest confirmed value</p>
+            <h3 id="price-tag">{price} USD</h3>
+            <p className="descriptor">latest update</p>
+            <h3 id="date-tag">{timestamp}</h3>
+        </>
     )
 }
 

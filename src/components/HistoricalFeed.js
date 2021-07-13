@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries, XAxis, YAxis} from 'react-vis';
 import { tellorPriceFeed } from '../helpers/smartContract.js'
+import '../style/HistoricalFeed.css'
 
 function HistoricalFeed() {
 
@@ -52,13 +53,14 @@ function HistoricalFeed() {
     {x: 9, y: 0}
   ];
   return (
-    <div className="App">
-      <XYPlot height={300} width={300}>
+    <>
+      <p className="descriptor">historical price feed</p>
+      <XYPlot height={350} width={500}>
         <XAxis />
         <YAxis />
         <LineSeries data={priceData} />
       </XYPlot>
-    </div>
+    </>
   );
 }
 

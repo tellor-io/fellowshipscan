@@ -1,25 +1,16 @@
 import React from "react"
+import logo from '../images/fellowship-scan-logo.png'
+import '../style/Navbar.css'
 
 function Navbar() {
     return(
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Fellowship Scan</a>
+                <img src={logo} alt="Tellor" height="75px"/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="/feeds">Price Feeds</a>
-                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/feeds">Transactions</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/about">About</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
