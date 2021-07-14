@@ -4,7 +4,7 @@ import {XYPlot, LineSeries, XAxis, YAxis} from 'react-vis';
 import { tellorPriceFeed } from '../helpers/smartContract.js'
 import '../style/HistoricalFeed.css'
 
-function HistoricalFeed() {
+function HistoricalFeed(props) {
 
   const granularity = 1000000; // For use in checking the value
 
@@ -16,7 +16,7 @@ function HistoricalFeed() {
     if (isLoading === true) {
         var allPrices = []
         var oldtimestamp = 0
-        tellorPriceFeed.methods.getCurrentValue("2").call()
+        tellorPriceFeed.methods.getCurrentValue(props.idNum).call()
         .then((roundData) => {
             oldtimestamp = roundData[2]
             allPrices.push({
@@ -24,7 +24,7 @@ function HistoricalFeed() {
               y: roundData[1] / granularity
             })
             for (let i = 2; i < 4; i++) {
-              tellorPriceFeed.methods.getDataBefore(2, oldtimestamp).call()
+              tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
               .then((nestedRoundData) => {
                 oldtimestamp = nestedRoundData[2]
                 allPrices.push({
@@ -33,8 +33,6 @@ function HistoricalFeed() {
                 })
               })
             }
-            console.log(typeof(allPrices));
-            console.log(allPrices);
             setPriceData(allPrices.reverse());
             setLoading(false)
         });

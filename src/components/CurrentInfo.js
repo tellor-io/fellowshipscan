@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { tellorPriceFeed } from '../helpers/smartContract.js'
 import '../style/CurrentInfo.css'
 
-function CurrentInfo() {
-
+function CurrentInfo(props) {
+    console.log("Here!")
+    console.log(props.idNum)
     const granularity = 1000000; // For use in checking the value
 
     // State variables
@@ -13,7 +14,7 @@ function CurrentInfo() {
 
     useEffect(() => {
         if (isLoading === true) {
-            tellorPriceFeed.methods.getCurrentValue("2").call()
+            tellorPriceFeed.methods.getCurrentValue(props.idNum).call()
             .then((roundData) => {
                 setPrice(roundData[1] / granularity)
                 setTimestamp(Date(roundData[2]))

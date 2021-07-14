@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { tellorPriceFeed } from '../helpers/smartContract.js'
 
-function Transactions(props) {
+function AllTransactions() {
 
     const granularity = 1000000; // For use in checking the value
 
@@ -21,14 +21,12 @@ function Transactions(props) {
             .then(function(events){
                 var newTransactions = []
                 for (let i = 0; i < numEvents; i++) {
-                    if (events[i]['returnValues']['_requestId'] === props.idNum.toString()) {
-                        newTransactions.push({
-                            reporter: events[i]['returnValues']['_reporter'],
-                            time: Date(events[i]['returnValues']['_time']),
-                            requestId: events[i]['returnValues']['_requestId'],
-                            value: (events[i]['returnValues']['_value']) / granularity
-                        })
-                    }
+                    newTransactions.push({
+                        reporter: events[i]['returnValues']['_reporter'],
+                        time: Date(events[i]['returnValues']['_time']),
+                        requestId: events[i]['returnValues']['_requestId'],
+                        value: (events[i]['returnValues']['_value']) / granularity
+                    })
                 }
                 setTransactions(newTransactions)
                 setLoading(false)
@@ -38,8 +36,6 @@ function Transactions(props) {
     return (
         <>
             <p>latest update miner values</p>
-            <br />
-            <br />
             <div className="miner-values">
                 {transactions.map((transaction) => (
                     <div className="container">
@@ -59,4 +55,4 @@ function Transactions(props) {
     )
 }
 
-export default Transactions;
+export default AllTransactions;
