@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 // Used to link to each price feed individually
 const feedRoutes = feeds.map((feed) =>
-    <li className="list-group-item">
+    <li key={feed.id} className="list-group-item">
         <p><b>ID: {feed.id}</b></p>
         <h4> <Link to={"/feeds/" + feed.id}>{feed.name}</Link> </h4>
     </li>

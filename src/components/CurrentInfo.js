@@ -3,8 +3,6 @@ import { tellorPriceFeed } from '../helpers/smartContract.js'
 import '../style/CurrentInfo.css'
 
 function CurrentInfo(props) {
-    console.log("Here!")
-    console.log(props.idNum)
     const granularity = 1000000; // For use in checking the value
 
     // State variables
