@@ -9,6 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 
+
 const routeItems = feeds.map((feed) =>
   <Route path={"/feeds/" + feed.id}>
     <PriceFeed idNum={feed.id} />

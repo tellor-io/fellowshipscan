@@ -24,7 +24,7 @@ function CurrentInfo(props) {
     });
     return (
         <>
-            <p className="descriptor">latest confirmed value</p>
+            <p className="descriptor"> latest confirmed value </p>
             <h3 id="price-tag">{price} USD</h3>
             <p className="descriptor">latest update</p>
             <h3 id="date-tag">{timestamp}</h3>
