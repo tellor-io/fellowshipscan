@@ -26,6 +26,7 @@ function Transactions(props) {
                     var newTransactions = []
                     for (let i = 0; i < numEvents; i++) {
                         if (events[i]['returnValues']['_requestId'] === props.idNum.toString()) {
+                            console.log(events[i]['returnValues']['_time'])
                             newTransactions.push({
                                 reporter: events[i]['returnValues']['_reporter'],
                                 time: Date(events[i]['returnValues']['_time']),

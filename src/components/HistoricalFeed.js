@@ -19,13 +19,22 @@ function HistoricalFeed(props) {
         tellorPriceFeed.methods.getCurrentValue(props.idNum).call()
         .then((roundData) => {
           console.log(roundData)
+          console.log(allPrices)
             oldtimestamp = roundData[2]
             allPrices.push({
               x: roundData[2],
               y: roundData[1] / granularity
             })
             console.log(allPrices)
-            for (let i = 2; i < 20; i++) {
+            tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
+            .then((nestedRoundData) => {
+              oldtimestamp = nestedRoundData[2]
+              allPrices.push({
+                x: nestedRoundData[2],
+                y: nestedRoundData[1] / granularity
+              })
+            })
+            /*for (let i = 2; i < 20; i++) {
               tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
               .then((nestedRoundData) => {
                 oldtimestamp = nestedRoundData[2]
@@ -35,7 +44,10 @@ function HistoricalFeed(props) {
                 })
               })
             }
-            setPriceData(allPrices.reverse());
+            console.log(allPrices)
+            setPriceData(allPrices.reverse());*/
+            console.log(allPrices.reverse())
+            setPriceData(allPrices.reverse())
             setLoading(false)
         });
     }
