@@ -35,7 +35,7 @@ function Home() {
         <p>get data values, look at reporter history, and more</p>
         <br />
         <div className="row">
-            <div className="col">
+            <div className="col-6">
                 <div class="card">
                         <div class="card-body">
                             <h3>Price Feeds</h3>
@@ -46,10 +46,11 @@ function Home() {
                         </div>
                     </div>
             </div>
-            <div className="col">
+            <div className="col-6">
             <div class="card">
                         <div class="card-body">
                         <h3>Latest reporter history</h3>
+                        <p>latest update miner values</p>
                 <AllTransactions />
                         </div>
                     </div>

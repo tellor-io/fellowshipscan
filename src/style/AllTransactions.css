@@ -1,19 +1,17 @@
-.miner-values {
-    background: #FFFFFF;
-    box-shadow: 0px 58px 80px rgba(0, 0, 0, 0.07), 0px 29.3625px 34.875px rgba(0, 0, 0, 0.04725), 0px 11.6px 13px rgba(0, 0, 0, 0.035), 0px 2.5375px 4.625px rgba(0, 0, 0, 0.02275);
-    border-bottom: 2px solid white;
-}
-
 .reporter-description {
-    line-height: 15px;
+    line-height: 17px;
     letter-spacing: -0.015em;
     font-size: 20px;
+}
+
+.list-group-item {
+    padding-top: 3% !important;
 }
 
 .id-header {
     line-height: 12px;
     letter-spacing: -0.015em;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .content-col {
@@ -23,11 +21,6 @@
 .transaction-con {
     border-top: 1px solid #d3d3d3;
     padding-top: 10px;
-    margin-bottom: -23px;
-}
-
-#content-0 {
-    border-top: 2px solid white !important;
 }
 
 .scan-link {
