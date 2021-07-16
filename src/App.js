@@ -1,4 +1,5 @@
 import Navigation from './components/Navbar.js';
+import Footer from './components/Footer.js';
 import PriceFeed from './components/PriceFeed.js';
 import Home from './components/Home.js';
 import feeds from './helpers/feeds.js';
@@ -31,6 +32,8 @@ function App() {
       </div>
     </Router>
     <br />
+    <br />
+    <Footer />
     </>
   );
 }

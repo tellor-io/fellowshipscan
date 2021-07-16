@@ -1,0 +1,18 @@
+#footer {
+    background-color: black !important;
+    padding-right: 2% !important;
+    padding-left: 0.5% !important;
+    padding-top: 1% !important;
+    padding-bottom: 1.25% !important;
+}
+
+.footer-link {
+    font-size: 16px;
+    color: white !important;
+    font-weight: 500;
+    line-height: 12px !important;
+}
+
+#links {
+    text-align: left !important;
+}
