@@ -2,6 +2,7 @@ import Web3 from 'web3';
 import React, { useState, useEffect } from 'react';
 import { tellorPriceFeed } from '../helpers/smartContract.js'
 import ReportIcon from '../icons/reportIcon.js';
+import '../style/Transactions.css';
 
 function Transactions(props) {
 
@@ -49,7 +50,7 @@ function Transactions(props) {
             <br />
             <br />
             <div className="miner-values">
-                {transactions.map((transaction, key) => (
+                {transactions.slice(0, 4).map((transaction, key) => (
                     <div key={key} className="container">
                         <br />
                         <div className="col">
@@ -62,6 +63,26 @@ function Transactions(props) {
                         </div>
                     </div>
                 ))}
+                <br />
+                <p>all transactions</p>
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">Value (in USD)</th>
+                        <th scope="col">Reporter Address</th>
+                        <th scope="col">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {transactions.slice(4, transactions.length - 1).map((transaction, key) => (
+                            <tr>
+                                <th scope="row">{transaction['value']}</th>
+                                <td><a href={"https://polygonscan.com/address/" + transaction['reporter']}>{transaction['reporter']}</a></td>
+                                <td>{transaction['time']}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </>
     )

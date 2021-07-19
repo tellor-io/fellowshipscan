@@ -10,7 +10,7 @@ function Footer() {
         <>
         <nav id="footer" class="navbar navbar-light bg-dark">
                 <div class="container-fluid">
-                    <a href="/"><img src={whitelogo} alt="Tellor" height="75px"/></a>
+                    <a href="https://tellor.io/"><img src={whitelogo} alt="Tellor" height="75px"/></a>
                 <form id="links">
                     <a class="nav-link active footer-link" aria-current="page" href="https://tellor.io/">
                         <HomeIcon />
