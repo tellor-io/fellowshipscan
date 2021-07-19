@@ -31,6 +31,7 @@ function PriceFeed(props) {
               </div>
               <div className="col">
                 <br />
+                <p>historical price feed</p>
                 <HistoricalFeed idNum={props.idNum}/>
               </div>
             </div>

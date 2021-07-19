@@ -2,6 +2,7 @@ import feeds from '../helpers/feeds.js';
 import AllTransactions from '../components/AllTransactions.js';
 import AllReporters from '../components/AllReporters.js'
 import CoinIcon from '../icons/coinIcon';
+import HistoricalFeed from './HistoricalFeed.js'
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import '../style/Home.css';
@@ -21,6 +22,10 @@ const feedRoutes = feeds.map((feed) =>
 )
 
 function Home() {
+
+    const numFeeds = 2; // Number of reports (can be changed into a constant later on)
+    const randNum = Math.floor(Math.random() * numFeeds ) + 1; // Choosing a random id
+
     return(
         <>
         <Helmet>
@@ -32,7 +37,13 @@ function Home() {
         <br />
         <div className="row">
             <div className="col-6">
-                Chris Pondoc
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Live Price Feed of {feeds[randNum - 1].name}</h3>
+                        <p>price activity from a random data id</p>
+                        <HistoricalFeed idNum={randNum} />
+                    </div>
+                </div>
             </div>
             <div className="col-6">
                 <div class="card">

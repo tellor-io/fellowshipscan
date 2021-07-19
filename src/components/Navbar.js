@@ -8,9 +8,10 @@ function Navbar() {
                 <div class="container-fluid">
                     <a href="/"><img src={logo} alt="Tellor" height="75px"/></a>
                 <form class="d-flex">
+                <a class="nav-link active" aria-current="page" href="https://github.com/tellor-io/fellowship/blob/main/LITEPAPER.MD">about</a>
+                <a class="nav-link active" aria-current="page" href="/reporters">reporters</a>
                     <a class="nav-link active" aria-current="page" href="/feeds">feeds</a>
-                    <a class="nav-link active" aria-current="page" href="/reporters">reporters</a>
-                    <a class="nav-link active" aria-current="page" href="/transactions">transactions</a>
+                    <a class="nav-link active" aria-current="page" href="/reports">reports</a>
                 </form>
                 </div>
         </nav>

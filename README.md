@@ -10,6 +10,8 @@ Similar to Tellor Scan, the Fellowship Scan allows users to have the following f
 * Look at past reporter history, detailed with addresses and values submitted
 * Analyze historical price data
 
+In addition, the dashboard provides commentary on what the different parts of the Fellowship and Mesosphere contract entail in the context of their value.
+
 ## Getting Started
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). To start, run:
 

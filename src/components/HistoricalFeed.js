@@ -7,6 +7,7 @@ import '../style/HistoricalFeed.css'
 function HistoricalFeed(props) {
 
   const granularity = 1000000; // For use in checking the value
+  const numVals = 20; // To see how many values we query
 
   // Set state variables
   const [isLoading, setLoading] = useState(true);
@@ -20,17 +21,15 @@ function HistoricalFeed(props) {
         .then((roundData) => {
             oldtimestamp = roundData[2]
             allPrices.push({
-              x: allPrices.length + 1,
+              x: numVals - (allPrices.length + 1),
               y: roundData[1] / granularity,
               timestamp: roundData[2]
             })
-            console.log(allPrices)
-            //for (var i = 2; i < 20; i++) {
             tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
             .then((nestedRoundData) => {
               oldtimestamp = nestedRoundData[2]
               allPrices.push({
-                x: allPrices.length + 1,
+                x: numVals - (allPrices.length + 1),
                 y: nestedRoundData[1] / granularity,
                 timestamp: nestedRoundData[2]
               })
@@ -38,7 +37,7 @@ function HistoricalFeed(props) {
               .then((anotherNestedData) => {
                 oldtimestamp = anotherNestedData[2]
                 allPrices.push({
-                  x: allPrices.length + 1,
+                  x: numVals - (allPrices.length + 1),
                   y: anotherNestedData[1] / granularity,
                   timestamp: anotherNestedData[2]
                 })
@@ -46,7 +45,7 @@ function HistoricalFeed(props) {
               .then((lastNestedData) => {
                 oldtimestamp = lastNestedData[2]
                 allPrices.push({
-                  x: allPrices.length + 1,
+                  x: numVals - (allPrices.length + 1),
                   y: lastNestedData[1] / granularity,
                   timestamp: lastNestedData[2]
                 })
@@ -54,12 +53,39 @@ function HistoricalFeed(props) {
               .then((lastNestedData) => {
                 oldtimestamp = lastNestedData[2]
                 allPrices.push({
-                  x: allPrices.length + 1,
+                  x: numVals - (allPrices.length + 1),
                   y: lastNestedData[1] / granularity,
                   timestamp: lastNestedData[2]
                 })
-                setPriceData(allPrices.reverse())
+                tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
+              .then((lastNestedData) => {
+                oldtimestamp = lastNestedData[2]
+                allPrices.push({
+                  x: numVals - (allPrices.length + 1),
+                  y: lastNestedData[1] / granularity,
+                  timestamp: lastNestedData[2]
+                })
+                tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
+              .then((lastNestedData) => {
+                oldtimestamp = lastNestedData[2]
+                allPrices.push({
+                  x: numVals - (allPrices.length + 1),
+                  y: lastNestedData[1] / granularity,
+                  timestamp: lastNestedData[2]
+                })
+                tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
+              .then((lastNestedData) => {
+                oldtimestamp = lastNestedData[2]
+                allPrices.push({
+                  x: numVals - (allPrices.length + 1),
+                  y: lastNestedData[1] / granularity,
+                  timestamp: lastNestedData[2]
+                })
+                setPriceData(allPrices)
             setLoading(false)
+              })
+              })
+              })
               })
               })
               })
@@ -70,7 +96,6 @@ function HistoricalFeed(props) {
 });
   return (
     <>
-      <p className="descriptor">historical price feed</p>
       <XYPlot height={350} width={500}>
         <XAxis />
         <YAxis />
