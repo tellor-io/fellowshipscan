@@ -18,37 +18,53 @@ function HistoricalFeed(props) {
         var oldtimestamp = 0
         tellorPriceFeed.methods.getCurrentValue(props.idNum).call()
         .then((roundData) => {
-          console.log(roundData)
-          console.log(allPrices)
             oldtimestamp = roundData[2]
             allPrices.push({
-              x: roundData[2],
-              y: roundData[1] / granularity
+              x: allPrices.length + 1,
+              y: roundData[1] / granularity,
+              timestamp: roundData[2]
             })
             console.log(allPrices)
+            //for (var i = 2; i < 20; i++) {
             tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
             .then((nestedRoundData) => {
               oldtimestamp = nestedRoundData[2]
               allPrices.push({
-                x: nestedRoundData[2],
-                y: nestedRoundData[1] / granularity
+                x: allPrices.length + 1,
+                y: nestedRoundData[1] / granularity,
+                timestamp: nestedRoundData[2]
+              })
+              tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
+              .then((anotherNestedData) => {
+                oldtimestamp = anotherNestedData[2]
+                allPrices.push({
+                  x: allPrices.length + 1,
+                  y: anotherNestedData[1] / granularity,
+                  timestamp: anotherNestedData[2]
+                })
+                tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
+              .then((lastNestedData) => {
+                oldtimestamp = lastNestedData[2]
+                allPrices.push({
+                  x: allPrices.length + 1,
+                  y: lastNestedData[1] / granularity,
+                  timestamp: lastNestedData[2]
+                })
+                tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
+              .then((lastNestedData) => {
+                oldtimestamp = lastNestedData[2]
+                allPrices.push({
+                  x: allPrices.length + 1,
+                  y: lastNestedData[1] / granularity,
+                  timestamp: lastNestedData[2]
+                })
+                setPriceData(allPrices.reverse())
+            setLoading(false)
+              })
+              })
               })
             })
-            /*for (let i = 2; i < 20; i++) {
-              tellorPriceFeed.methods.getDataBefore(props.idNum, oldtimestamp).call()
-              .then((nestedRoundData) => {
-                oldtimestamp = nestedRoundData[2]
-                allPrices.push({
-                  x: roundData[2],
-                  y: nestedRoundData[1] / granularity,
-                })
-              })
-            }
-            console.log(allPrices)
-            setPriceData(allPrices.reverse());*/
-            console.log(allPrices.reverse())
-            setPriceData(allPrices.reverse())
-            setLoading(false)
+            //}
         });
     }
 });
