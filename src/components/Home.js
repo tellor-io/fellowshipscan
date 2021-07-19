@@ -1,5 +1,6 @@
 import feeds from '../helpers/feeds.js';
 import AllTransactions from '../components/AllTransactions.js';
+import AllReporters from '../components/AllReporters.js'
 import CoinIcon from '../icons/coinIcon';
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -31,6 +32,22 @@ function Home() {
         <br />
         <div className="row">
             <div className="col-6">
+                Chris Pondoc
+            </div>
+            <div className="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Reporters</h3>
+                        <p>activities from all addresses from the fellowship</p>
+                        <AllReporters />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div className="row">
+            <div className="col-6">
                 <div class="card">
                         <div class="card-body">
                             <h3>Price Feeds</h3>
@@ -42,14 +59,13 @@ function Home() {
                     </div>
             </div>
             <div className="col-6">
-            <div class="card">
-                        <div class="card-body">
+                <div class="card">
+                    <div class="card-body">
                         <h3>Latest reporter history</h3>
                         <p>latest update miner values</p>
-                <AllTransactions />
-                        </div>
+                        <AllTransactions />
                     </div>
-                
+                </div>
             </div>
         </div>
         </>
