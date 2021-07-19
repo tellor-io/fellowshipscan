@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { tellorPriceFeed } from '../helpers/smartContract.js'
-import '../style/AllTransactions.css'
+import { tellorPriceFeed } from '../helpers/smartContract.js';
+import '../style/AllReporters.css';
+import FlagReporterIcon from '../icons/flagReporterIcon.js';
 
 function AllReporters() {
 
@@ -33,8 +34,22 @@ function AllReporters() {
         <>
             <div className="miner-values">
                 <ul id="reporters" className="list-group">
-                    {reporters.map((reporter) => 
-                        <li key={reporter.number}>{reporter.reporter}</li>
+                    {reporters.map((reporter) =>
+                        <div key={reporter.number}> 
+                            <li class="list-group-item">
+                                <div className="row">
+                                    <div className="col-10">
+                                        <h5 class="reporter-title">Reporter {reporter.number}</h5>
+                                        <p class="reporter-address">{reporter.reporter.substring(0, 30) + "..."}</p>
+                                    </div>
+                                    <div className="col-2">
+                                        <div className="icon-wrapper">
+                                            <span className="report-icon"> <FlagReporterIcon /> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
                     )}
                 </ul>
             </div>

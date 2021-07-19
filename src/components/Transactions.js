@@ -18,7 +18,7 @@ function Transactions(props) {
             web3.eth.getBlockNumber().then(function(value) {
                 const latestBlock = value;
                 tellorPriceFeed.getPastEvents('NewValueSubmitted', {
-                    //fromBlock: latestBlock - 200,
+                    // fromBlock: latestBlock - 200,
                     // toBlock: latestBlock
                     fromBlock: 16923393 - 100,
                     toBlock: 16923393
