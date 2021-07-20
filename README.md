@@ -1,5 +1,7 @@
 # Fellowship Scan
 
+![Fellowship](public/fellowship.png)
+
 The Fellowship Scan allows members of the Tellor community to track activity on the Fellowship and Mesophere smart contracts. 
 
 Created by: Christopher Pondoc.
