@@ -9,7 +9,7 @@ function Navbar() {
                     <a href="/"><img src={logo} alt="Tellor" height="75px"/></a>
                 <form class="d-flex">
                     <a class="nav-link active" aria-current="page" target="_blank" rel="noreferrer" href="https://github.com/tellor-io/fellowship/blob/main/LITEPAPER.MD">about</a>
-                    <a class="nav-link active" aria-current="page" href="/feeds">feeds</a>
+                    <a class="nav-link active" aria-current="page" href="/feeds/all">feeds</a>
                     <a class="nav-link active" aria-current="page" href="/reports">reports</a>
                 </form>
                 </div>

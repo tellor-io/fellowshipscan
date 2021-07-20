@@ -26,10 +26,10 @@ function App() {
     <Router>
       <div className="container">
         <Switch>
-          <Route path="/reports">
+          <Route path="/:network/reports">
             <ReportsPage />
           </Route>
-          <Route path="/feeds">
+          <Route path="/feeds/all">
             <FeedsPage />
           </Route>
           {routeItems}

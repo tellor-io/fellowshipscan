@@ -37,7 +37,7 @@ function PriceFeed(props) {
             <br />
             <div className="row">
               <br />
-              <Transactions idNum={props.idNum}/>
+              <Transactions infuraUrl="https://polygon-mainnet.infura.io/v3/5186860ac32a42758846a4735922ec46" address="0xACC2d27400029904919ea54fFc0b18Bf07C57875" idNum={props.idNum}/>
             </div>
           </div>
       </div>

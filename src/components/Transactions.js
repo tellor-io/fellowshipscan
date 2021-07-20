@@ -1,8 +1,12 @@
 import Web3 from 'web3';
 import React, { useState, useEffect } from 'react';
 import { tellorPriceFeed } from '../helpers/smartContract.js'
+import setUpContract from '../helpers/customSmartContract.js'
 import ReportIcon from '../icons/reportIcon.js';
 import '../style/Transactions.css';
+import {
+    useParams
+} from "react-router-dom";
 
 function Transactions(props) {
 
@@ -12,9 +16,13 @@ function Transactions(props) {
     const [isLoading, setLoading] = useState(true);
     const [transactions, setTransactions] = useState([]);
 
+    let { network } = useParams();
+
     useEffect(() => {
         if (isLoading === true) {
             var numEvents = 0;
+            console.log(network)
+            //var tellorPriceFeed = setUpContract(props.infuraUrl, props.address)
             const web3 = new Web3("https://polygon-mainnet.infura.io/v3/5186860ac32a42758846a4735922ec46");
             web3.eth.getBlockNumber().then(function(value) {
                 const latestBlock = value;
