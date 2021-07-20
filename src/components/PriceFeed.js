@@ -15,7 +15,7 @@ function PriceFeed(props) {
     <div className="container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/feeds/all">Feeds</a></li>
+            <li class="breadcrumb-item"><a href="/feeds">Feeds</a></li>
             <li class="breadcrumb-item active" aria-current="page">ID {props.idNum}</li>
         </ol>
       </nav>

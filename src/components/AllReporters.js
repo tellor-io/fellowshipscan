@@ -40,7 +40,7 @@ function AllReporters() {
                                 <div className="row">
                                     <div className="col-10">
                                         <h5 class="reporter-title">Reporter {reporter.number}</h5>
-                                        <p class="reporter-address">{reporter.reporter.substring(0, 30) + "..."}</p>
+                                        <a class="reporter-address" href={"https://polygonscan.com/address/" + reporter.reporter}>{reporter.reporter.substring(0, 30) + "..."}</a>
                                     </div>
                                     <div className="col-2">
                                         <div className="icon-wrapper">

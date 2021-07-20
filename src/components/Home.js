@@ -34,7 +34,7 @@ function Home() {
                 <div class="card">
                     <div class="card-body">
                         <h3>Reporters</h3>
-                        <p>activities from all addresses from the fellowship</p>
+                        <p>reporters are selected addresses in the fellowship that report values on-chain</p>
                         <AllReporters />
                     </div>
                 </div>

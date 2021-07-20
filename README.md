@@ -1,4 +1,4 @@
-# Fellowship Scan
+# 🖥 Fellowship Scan
 
 ![Fellowship](public/fellowship.png)
 
