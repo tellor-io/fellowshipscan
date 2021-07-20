@@ -1,25 +1,10 @@
 import feeds from '../helpers/feeds.js';
 import AllTransactions from '../components/AllTransactions.js';
 import AllReporters from '../components/AllReporters.js'
-import CoinIcon from '../icons/coinIcon';
 import HistoricalFeed from './HistoricalFeed.js'
-import { Link } from "react-router-dom";
+import feedRoutes from './FeedRoutes.js';
 import { Helmet } from "react-helmet";
 import '../style/Home.css';
-
-// Used to link to each price feed individually
-const feedRoutes = feeds.map((feed) =>
-    <li key={feed.id} className="list-group-item">
-        <p class="coin-id">
-            <span class="coin-icon">
-                <CoinIcon />
-            </span>
-            <b>&nbsp;ID: {feed.id}</b>
-            <br />
-            <Link class="coin-name" to={"/feeds/" + feed.id}>{feed.name}</Link>
-        </p>
-    </li>
-)
 
 function Home() {
 
