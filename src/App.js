@@ -3,6 +3,7 @@ import Footer from './components/Footer.js';
 import PriceFeed from './components/PriceFeed.js';
 import Home from './components/Home.js';
 import feeds from './helpers/feeds.js';
+import ReportsPage from './components/ReportsPage.js';
 import './style/Main.css'
 import {
   BrowserRouter as Router,
@@ -25,6 +26,9 @@ function App() {
       <div className="container">
         <Switch>
           {routeItems}
+          <Route path="/reports">
+            <ReportsPage />
+          </Route>
           <Route path="/">
             <Home />
           </Route>

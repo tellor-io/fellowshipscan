@@ -29,7 +29,7 @@ function Transactions(props) {
                 .then(function(events){
                     var newTransactions = []
                     for (let i = 0; i < numEvents; i++) {
-                        if (events[i]['returnValues']['_requestId'] === props.idNum.toString()) {
+                        if (events[i]['returnValues']['_requestId'] === props.idNum.toString() || props.idNum.toString() === "-1") {
                             newTransactions.push({
                                 reporter: events[i]['returnValues']['_reporter'],
                                 time: Date(events[i]['returnValues']['_time']),
@@ -47,8 +47,6 @@ function Transactions(props) {
     return (
         <>
             <p>latest update miner values</p>
-            <br />
-            <br />
             <div className="miner-values">
                 {transactions.slice(0, 4).map((transaction, key) => (
                     <div key={key} className="container">
