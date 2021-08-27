@@ -15,7 +15,6 @@ function Transactions(props) {
     // State variables
     const [isLoading, setLoading] = useState(true);
     const [transactions, setTransactions] = useState([]);
-
     let { network } = useParams();
 
     useEffect(() => {
